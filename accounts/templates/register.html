@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+<h2>
+Register
+
+</h2>
+<link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+<div id="login" class="container">
+  <div class="row-fluid">
+    <div class="span12">
+      <div class="login well well-small">
+        {% if messages %}
+            {% for message in messages %}
+            <div class='alert alert-info'>
+              {{message}}
+            </div>
+            {% endfor %}
+            {% endif %}
+       
+        <form method="post">
+          {% csrf_token %}
+          
+         
+         
+          user name<div class="control-group">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-user"></i></span>
+              <input name="username" required="required" placeholder="Username" maxlength="255" type="text" id="UserUsername"> 
+            </div>
+          </div>
+          email<div class="control-group">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-user"></i></span>
+              <input name="email" required="required" placeholder="Username" maxlength="255" type="email" id="UserUsername"> 
+            </div>
+          </div>
+          password<div class="control-group">
+            <div class="input-prepend">
+              <span class="add-on"><i class="icon-lock"></i></span>
+              <input name="password" required="required" placeholder="Password" type="password" id="UserPassword"> 
+            </div>
+          </div>
+          <div class="control-group">
+            <label id="remember-me">
+                Already have account? <a href='{% url 'login' %}'>go login</a>
+          </div>
+          <div class="control-group">
+            <input class="btn btn-primary btn-large btn-block" type="submit" value="Sign in"> 
+          </div>
+        </form>
+      </div><!--/.login-->
+    </div><!--/.span12-->
+  </div><!--/.row-fluid-->
+</div><!--/.container-->
+
+
+{% endblock %}
